@@ -13,9 +13,6 @@ const refs = getRefs();
 refs.input.addEventListener('input', debounce(onFilterChange, 500));
 
 
-const listItemsMarkup = createListItemsMarkup(countries);
-populateList(listItemsMarkup);
-
 function createListItemsMarkup(items) {
   return items.map(item => `<li>${item}</li>`).join('');
 }
@@ -23,12 +20,18 @@ function createListItemsMarkup(items) {
 function onFilterChange(evt) {
   const filter = evt.target.value.toLowerCase();
 
+
   const filteredItems = countries.filter(t =>
     t.toLowerCase().includes(filter),
   );
 
   const listItemsMarkup = createListItemsMarkup(filteredItems);
   populateList(listItemsMarkup);
+
+
+  if (filter === '') {
+    refs.list.innerHTML = '';
+  }
 }
 
 function populateList(markup) {
