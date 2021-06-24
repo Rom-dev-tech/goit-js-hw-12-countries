@@ -1,19 +1,18 @@
-<h1>Countri</h1>
+<h1> {{name}} </h1>
 <div class="container">
 
    <div class="description">
-      <p><b>Capital: </b>fvdwfvwrgv </p>
-      <p><b>Population:</b> revev</p>
-      <p><b>Languages:</b> rverver</p>
+      <p><b>Capital: </b> {{capital}} </p>
+      <p><b>Population:</b> {{population}} </p>
+      <p><b>Languages:</b></p>
       <ul>
-         <li>svdsvs</li>
-         <li>sdvsdvs</li>
-         <li>svdsdvs</li>
-
+         {{#each languages}}
+         <li>{{languages.name}}</li>
+         {{/each}}
       </ul>
    </div>
 
    <div class='gallery__thumb'>
-      <img src='https://wikiway.com/upload/iblock/742/800pxFlagofAustraliasvg.png' alt='Флаг ' width='250' />
+      <img src="{{flag}}" alt='Флаг {{name}}' width='250' />
    </div>
 </div>
