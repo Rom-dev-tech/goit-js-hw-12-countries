@@ -37,3 +37,4 @@ function onFilterChange(evt) {
 function populateList(markup) {
   refs.list.innerHTML = markup;
 }
+
