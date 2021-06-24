@@ -1,48 +1,53 @@
-// import './sass/main.scss';
-// import getRefs from './js/getRefs';
-// import Countries from './js/fetchCountries';
+import './sass/main.scss';
+import getRefs from './js/getRefs';
+import API from './js/fetchCountries';
+import countryCardTpl from './templates/country-card.hbs';
+import countriesList from './templates/countries-list.hbs';
 
-// const debounce = require('lodash.debounce');
+const debounce = require('lodash.debounce');
 
-// // countries
-// import countries from './js/countries'
+// refs
+const refs = getRefs();
 
-// // refs
-// const refs = getRefs();
+// lisiner
+refs.input.addEventListener('input', debounce(onFilterChange, 500));
 
-// // lisiner
-// refs.input.addEventListener('input', debounce(onFilterChange, 500));
+function onFilterChange(evt) {
+  const searchQuery = evt.target.value.toLowerCase();
 
+  API.fetchCountries(searchQuery).then(createsCountriesMarkup).catch(onFetchError);
 
-// function createListItemsMarkup(items) {
-//   return items.map(item => `<li>${item}</li>`).join('');
-// }
+  clear(evt);
+}
 
-// function onFilterChange(evt) {
-//   const searchQuery = evt.target.value.toLowerCase();
+function createsCountriesMarkup(counries) {
+  const arrayLenght = counries.length;
+  const OneCountryMarkup = counries.map(countryCardTpl).join('');
+  const countryListMarkup = counries.map(countriesList).join('');
 
+  if (arrayLenght === 1) {
+    renderMarkup(OneCountryMarkup);
+  }
 
-//   const filteredItems = countries.filter(t =>
-//     t.toLowerCase().includes(searchQuery),
-//   );
+  if (arrayLenght > 2 && arrayLenght < 10) {
+    renderMarkup(countryListMarkup);
+  }
 
-//   const listItemsMarkup = createListItemsMarkup(filteredItems);
-//   populateList(listItemsMarkup);
+  if (arrayLenght > 10) {
+    renderMarkup('');
+  }
+}
 
+function onFetchError(error) {
+  return console.log(error);
+}
 
-//   if (searchQuery === '') {
-//     refs.list.innerHTML = '';
-//   }
-// }
+function clear(evt) {
+  if (evt.target.value === '') {
+    renderMarkup('');
+  }
+}
 
-// function populateList(markup) {
-//   refs.list.innerHTML = markup;
-// }
-
-// ================
-
-fetch('https://restcountries.eu/rest/v2/name/ukr')
-  .then(response => (response.json())
-    .then(console.log())
-    ,
-  );
+function renderMarkup(markup) {
+  refs.list.innerHTML = `${markup}`;
+}
