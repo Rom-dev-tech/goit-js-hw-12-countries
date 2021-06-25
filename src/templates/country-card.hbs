@@ -1,18 +1,20 @@
-<h1> {{name}} </h1>
+<h2> {{name}} </h2>
 <div class='container'>
 
   <div class='description'>
-    <p><b>Capital: </b> {{capital}} </p>
-    <p><b>Population:</b> {{population}} </p>
-    <p><b>Languages:</b></p>
-    <ul>
-      {{#each languages}}
-        <li>{{name}}</li>
-      {{/each}}
-    </ul>
+    <p lass='text'><b>Capital: </b> <span class='text'>{{capital}}</span> </p>
+    <p class='text'><b>Population:</b> <span class='text'>{{population}}</span> </p>
+    <div class='languages'>
+      <p><b>Languages:</b></p>
+      <ul>
+        {{#each languages}}
+          <li><span class='list'>{{name}}</span></li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 
   <div class='gallery__thumb'>
-    <img src='{{flag}}' alt='Флаг {{name}}' width='250' />
+    <img src='{{flag}}' alt='Флаг {{name}}' width='350' />
   </div>
 </div>
