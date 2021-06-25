@@ -48,7 +48,7 @@ function createsCountriesMarkup(counries) {
     });
   }
 
-  if (arrayLenght > 2 && arrayLenght < 10) {
+  if (arrayLenght >= 2 && arrayLenght <= 10) {
     renderMarkup(countryListMarkup);
   }
 
