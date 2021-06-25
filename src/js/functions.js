@@ -50,10 +50,6 @@ function createsCountriesMarkup(counries) {
 
   if (arrayLenght > 2 && arrayLenght < 10) {
     renderMarkup(countryListMarkup);
-
-    alert({
-      text: 'Please enter information more specifically',
-    });
   }
 
   if (arrayLenght > 10) {
