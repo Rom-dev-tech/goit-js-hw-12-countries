@@ -13,11 +13,9 @@ import * as Confirm from '../../node_modules/@pnotify/confirm';
 import '../../node_modules/@pnotify/confirm/dist/PNotifyConfirm.css';
 defaultModules.set(PNotifyMobile, {});
 
-// refs
 const refs = getRefs();
 
-// functions
-function createsCountriesMarkup(counries) {
+export const createsCountriesMarkup = counries => {
   const arrayLenght = counries.length;
   const OneCountryMarkup = counries.map(countryCardTpl).join('');
   const countryListMarkup = counries.map(countriesList).join('');
@@ -46,36 +44,31 @@ function createsCountriesMarkup(counries) {
         ],
       ]),
     });
-  }
-
-  if (arrayLenght >= 2 && arrayLenght <= 10) {
-    renderMarkup(countryListMarkup);
-  }
-
-  if (arrayLenght > 10) {
+  } else if (arrayLenght > 10) {
     renderMarkup('');
 
     alert({
       text: 'Many countries have been found. Please be more specific',
     });
+  } else {
+    renderMarkup(countryListMarkup);
   }
-}
+};
 
-function onFetchError(error) {
+export const onFetchError = error => {
   console.log(error);
   alert({
     text: 'Country not found. Try again..',
   });
-}
+  renderMarkup('');
+};
 
-function clearMarkup(evt) {
+export const clearMarkup = evt => {
   if (evt.target.value === '') {
     renderMarkup('');
   }
-}
+};
 
-function renderMarkup(markup) {
+const renderMarkup = markup => {
   refs.list.innerHTML = `${markup}`;
-}
-
-export default { createsCountriesMarkup, clearMarkup, onFetchError };
+};

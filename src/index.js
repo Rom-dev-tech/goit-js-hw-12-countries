@@ -1,22 +1,20 @@
 import './sass/main.scss';
 import getRefs from './js/getRefs';
 import API from './js/fetchCountries';
-import fn from './js/functions';
+import { createsCountriesMarkup } from './js/functions';
+import { onFetchError } from './js/functions';
+import { clearMarkup } from './js/functions';
 
-// library 'lodash'
 const debounce = require('lodash.debounce');
 
-// refs
 const refs = getRefs();
 
-// lisiner
-refs.input.addEventListener('input', debounce(onInputSearch, 500));
-
-// searchQuery
-function onInputSearch(evt) {
+const onInputSearch = evt => {
   const searchQuery = evt.target.value.toLowerCase();
 
-  API.fetchCountries(searchQuery).then(fn.createsCountriesMarkup).catch(fn.onFetchError);
+  API.fetchCountries(searchQuery).then(createsCountriesMarkup).catch(onFetchError);
 
-  fn.clearMarkup(evt);
-}
+  clearMarkup(evt);
+};
+
+refs.input.addEventListener('input', debounce(onInputSearch, 500));
