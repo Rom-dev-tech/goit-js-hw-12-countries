@@ -20,6 +20,12 @@ export const createsCountriesMarkup = counries => {
   const OneCountryMarkup = counries.map(countryCardTpl).join('');
   const countryListMarkup = counries.map(countriesList).join('');
 
+  renderMarkup(countryListMarkup);
+
+  if (!arrayLenght) {
+    return;
+  }
+
   if (arrayLenght === 1) {
     renderMarkup(OneCountryMarkup);
 
@@ -44,14 +50,14 @@ export const createsCountriesMarkup = counries => {
         ],
       ]),
     });
-  } else if (arrayLenght > 10) {
+  }
+
+  if (arrayLenght > 10) {
     renderMarkup('');
 
     alert({
       text: 'Many countries have been found. Please be more specific',
     });
-  } else {
-    renderMarkup(countryListMarkup);
   }
 };
 
