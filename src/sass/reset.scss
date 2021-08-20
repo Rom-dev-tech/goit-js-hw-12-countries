@@ -12,6 +12,7 @@ body {
   background-color: rgb(213, 222, 223);
   background-image: url('https://krot.info/uploads/posts/2021-01/1610496491_10-p-strogii-no-krasivii-fon-dlya-prezentatsii-16.jpg');
   background-size: cover;
+  height: 100vh;
 }
 
 button,
@@ -23,4 +24,9 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
 }

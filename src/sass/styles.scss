@@ -1,9 +1,35 @@
+.section {
+  padding: 20px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 50px 0;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0 15px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
+}
+
 .input {
   font: inherit;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 30%;
+  width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -21,61 +47,106 @@
 }
 
 .country-list {
-  font-size: 25px;
+  font-size: 14px;
   margin-bottom: 20px;
-  padding-left: 70px;
 }
 
 .title {
   text-align: center;
+  margin-top: 0;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
 }
 
-.languages {
-  display: flex;
-  align-items: center;
+.description-list {
+  padding: 0;
 }
 
-.languages-list {
-  font-size: 14px;
-  font-style: italic;
+.description-item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
 }
 
 .description-title {
-  margin-right: 50px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 100px;
+    font-size: 24px;
+  }
 }
 
 .description-subtitle {
-  display: inline-block;
-}
-
-.container {
+  margin: 0;
   display: flex;
+  justify-content: space-between;
 
-  width: 40%;
-  min-height: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
-  border-radius: 1rem;
-}
+  @media screen and (min-width: 1200px) {
+    justify-content: space-around;
+  }
 
-.description,
-.gallery-thumb {
-  width: 50%;
-  padding: 20px;
+  & span {
+    font-size: 13px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
 }
 
 .js-list {
-  margin-top: 150px;
+  margin-top: 20px;
+}
+
+.gallery-thumb {
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .earth {
   position: absolute;
-  top: 150px;
-  right: 50px;
+  bottom: 15px;
+  right: 40%;
 
   background-image: url('../images/44996.png');
   background-size: cover;
-  width: 400px;
-  height: 400px;
+
+  @media screen and (min-width: 410px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 5px;
+    right: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 400px;
+    height: 400px;
+    top: 190px;
+    right: 10px;
+  }
+}
+
+.gallery-image {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
 }

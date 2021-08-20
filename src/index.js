@@ -12,9 +12,14 @@ const refs = getRefs();
 const onInputSearch = evt => {
   const searchQuery = evt.target.value.toLowerCase();
 
+  if (searchQuery === '') {
+    clearMarkup(evt);
+    return;
+  }
+
   API.fetchCountries(searchQuery).then(createsCountriesMarkup).catch(onFetchError);
 
   clearMarkup(evt);
 };
 
-refs.input.addEventListener('input', debounce(onInputSearch, 500));
+refs.input.addEventListener('input', debounce(onInputSearch, 900));

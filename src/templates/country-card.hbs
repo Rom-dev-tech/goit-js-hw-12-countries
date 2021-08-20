@@ -1,24 +1,32 @@
-<h2 class='title'> {{name}} </h2>
-<div class='container'>
-
-  <div class='description'>
-    <p class='description-subtitle'><b class='description-title'>Capital:</b>
-      <span>{{capital}}</span>
-    </p>
-    <p class='description-subtitle'><b class='description-title'>Population:</b>
-      <span>{{population}}</span>
-    </p>
-    <div class='languages'>
-      <p><b class='description-title'>Languages:</b></p>
-      <ul>
-        {{#each languages}}
-          <li><span class='languages-list'>{{name}}</span></li>
-        {{/each}}
-      </ul>
-    </div>
-  </div>
-
-  <div class='gallery-thumb'>
-    <img src='{{flag}}' alt='flag {{name}}' width='350' />
-  </div>
+<div class='gallery-thumb'>
+  <img class='gallery-image' src='{{flag}}' alt='flag {{name}}' width='350' />
 </div>
+<h2 class='title'> {{name}} </h2>
+
+<div class='description'>
+  <ul class='description-list'>
+    <li class='description-item'>
+      <p class='description-subtitle'><b class='description-title'>Capital:</b>
+        <span>{{capital}}</span>
+      </p>
+    </li>
+
+    <li class='description-item'>
+      <p class='description-subtitle'><b class='description-title'>Population:</b>
+        <span>{{population}}</span>
+      </p>
+    </li>
+
+    <li class='description-item'>
+      <p class='description-subtitle'><b class='description-title'>Languages:</b>
+        {{#each languages}}
+          <span>{{name}}</span>
+        {{/each}}
+      </p>
+    </li>
+  </ul>
+</div>
+
+{{!-- <div class='gallery-thumb'>
+    <img class='gallery-image' src='{{flag}}' alt='flag {{name}}' width='350' />
+  </div> --}}
