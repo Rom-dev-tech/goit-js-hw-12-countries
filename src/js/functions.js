@@ -16,8 +16,11 @@ defaultModules.set(PNotifyMobile, {});
 const refs = getRefs();
 
 export const createsCountriesMarkup = counries => {
+  // Подмена языка в обьект
+  counries[0].languages = Object.values(counries[0].languages).join(', ');
+
   const arrayLenght = counries.length;
-  const OneCountryMarkup = counries.map(countryCardTpl).join('');
+  const OneCountryMarkup = counries.map(countryCardTpl);
   const countryListMarkup = counries.map(countriesList).join('');
 
   renderMarkup(countryListMarkup);

@@ -1,7 +1,7 @@
 <div class='gallery-thumb'>
-  <img class='gallery-image' src='{{flag}}' alt='flag {{name}}' width='350' />
+  <img class='gallery-image' src='{{flags.svg}}' alt='flag {{name.official}}' width='350' />
 </div>
-<h2 class='title'> {{name}} </h2>
+<h2 class='title'> {{name.official}} </h2>
 
 <div class='description'>
   <ul class='description-list'>
@@ -19,14 +19,8 @@
 
     <li class='description-item'>
       <p class='description-subtitle'><b class='description-title'>Languages:</b>
-        {{#each languages}}
-          <span>{{name}}</span>
-        {{/each}}
+        <span>{{languages}}</span>
       </p>
     </li>
   </ul>
 </div>
-
-{{!-- <div class='gallery-thumb'>
-    <img class='gallery-image' src='{{flag}}' alt='flag {{name}}' width='350' />
-  </div> --}}
